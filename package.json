@@ -1,0 +1,14 @@
+{
+  "name": "webpack-weinre",
+  "description": "integrated weinre for [webpack]",
+  "version": "1.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "webpack": "^1.3.0"
+  },
+  "dependencies": {
+    "weinre": "~2.0.0-pre-I0Z7U9OV"
+  },
+  "scripts": {
+  }
+}
