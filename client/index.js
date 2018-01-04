@@ -1,7 +1,6 @@
 var scriptElements = document.getElementsByTagName("script");
 
 var scriptUrl;
-
 if(typeof __resourceQuery === "string" && __resourceQuery) {
     scriptUrl = __resourceQuery.substr(1);
 }

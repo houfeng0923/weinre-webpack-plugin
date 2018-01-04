@@ -1,14 +1,16 @@
 {
-  "name": "webpack-weinre",
-  "description": "integrated weinre for [webpack]",
-  "version": "1.0.0",
+  "name": "weinre-webpack-plugin",
+  "description": "weinre plugin for [webpack]",
+  "version": "2.0.0",
   "license": "MIT",
+  "main": "./src/index.js",
   "peerDependencies": {
-    "webpack": "^1.3.0"
+    "webpack": "^2 || ^3"
   },
   "dependencies": {
-    "weinre": "~2.0.0-pre-I0Z7U9OV"
+    "express": "3.18.1",
+    "nopt": "3.0.x",
+    "underscore": "1.7.x"
   },
-  "scripts": {
-  }
+  "scripts": {}
 }

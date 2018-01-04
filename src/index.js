@@ -1,26 +1,45 @@
-var weinre = require('weinre');
-var utils = require('./utils');
+let path = require('path');
+let childProcess =  require('child_process');
+let _ = require('./utils');
 
-var weinreOpts = {
+let defaultOpts = {
   httpPort: 8000,
-  boundHost: 'localhost',
+  boundHost: '0.0.0.0',
   verbose: false,
   debug: false,
-  readTimeout: 5
+  readTimeout: 5,
 };
 
-var callbackUrl ;
+function WeinreWebpackPlugin(options) {
+  let opts = (this.options = _.extend(defaultOpts, options));
+  if (!opts.deathTimeout) {
+    opts.deathTimeout = 3 * opts.readTimeout;
+  }
+  this.weinreServer = null;
+}
 
-exports.run = function(opts){
-    var callUrlTpl = 'http://{{boundHost}}:{{httpPort}}/target/target-script-min.js#anonymous';
-    opts = utils.extend({}, weinreOpts, opts);
-    if (opts.deathTimeout == null) {
-        opts.deathTimeout = 3 * opts.readTimeout;
+WeinreWebpackPlugin.prototype.apply = function(compiler) {
+  let plugin = this;
+  let options = this.options;
+  let weinreClient = path.resolve(__dirname, '../client');
+  let insertUrl = `http://${options.boundHost}:${options.httpPort}/target/target-script-min.js#anonymous`;
+  let weinreEntry = `${weinreClient}?${insertUrl}`;
+  compiler.plugin('entry-option', function(context, entrys) {
+    Object.keys(entrys).forEach(function(key) {
+      entrys[key].push(weinreEntry);
+    });
+  });
+
+  compiler.plugin('done', function() {
+    if (!this.weinreServer) {
+      this.weinreServer = startServer(plugin.options);
     }
-    weinre.run(opts);
-
-    exports.callbackUrl = callbackUrl = callUrlTpl.replace('{{boundHost}}', opts.boundHost)
-                                                  .replace('{{httpPort}}', opts.httpPort);
-    return callbackUrl;
+  });
 };
 
+function startServer(opts) {
+  let weinre = require('../weinre/lib/weinre');
+  return weinre.run(opts);
+};
+
+module.exports = WeinreWebpackPlugin;
