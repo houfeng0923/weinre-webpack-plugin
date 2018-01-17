@@ -202,8 +202,8 @@ WarnOnRecursiveRequire = !!value
 }
 function modjewel_module(require, exports, module) {
 exports.VERSION                = VERSION
-exports.require                = null 
-exports.define                 = null 
+exports.require                = null
+exports.define                 = null
 exports.getLoadedModuleIds     = modjewel_getLoadedModuleIds
 exports.getPreloadedModuleIds  = modjewel_getPreloadedModuleIds
 exports.getModule              = modjewel_getModule
@@ -220,7 +220,7 @@ require_reset()
 modjewel.require('modjewel').warnOnRecursiveRequire(true);
 
 // weinre/common/Binding.amd.js
-;modjewel.define("weinre/common/Binding", function(require, exports, module) { 
+;modjewel.define("weinre/common/Binding", function(require, exports, module) {
 var Binding, Ex;
 Ex = require('./Ex');
 module.exports = Binding = (function() {
@@ -245,7 +245,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/Callback.amd.js
-;modjewel.define("weinre/common/Callback", function(require, exports, module) { 
+;modjewel.define("weinre/common/Callback", function(require, exports, module) {
 var Callback, CallbackIndex, CallbackTable, ConnectorChannel, Ex;
 Ex = require('./Ex');
 CallbackTable = {};
@@ -315,7 +315,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/Debug.amd.js
-;modjewel.define("weinre/common/Debug", function(require, exports, module) { 
+;modjewel.define("weinre/common/Debug", function(require, exports, module) {
 var Debug;
 module.exports = new (Debug = (function() {
 function Debug() {
@@ -367,7 +367,7 @@ return Debug;
 
 ;
 // weinre/common/EventListeners.amd.js
-;modjewel.define("weinre/common/EventListeners", function(require, exports, module) { 
+;modjewel.define("weinre/common/EventListeners", function(require, exports, module) {
 var EventListeners, Ex, Weinre;
 Ex = require('./Ex');
 Weinre = require('./Weinre');
@@ -428,7 +428,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/Ex.amd.js
-;modjewel.define("weinre/common/Ex", function(require, exports, module) { 
+;modjewel.define("weinre/common/Ex", function(require, exports, module) {
 var Ex, StackTrace, prefix;
 StackTrace = require('./StackTrace');
 module.exports = Ex = (function() {
@@ -472,7 +472,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/HookLib.amd.js
-;modjewel.define("weinre/common/HookLib", function(require, exports, module) { 
+;modjewel.define("weinre/common/HookLib", function(require, exports, module) {
 var HookLib, HookSite, HookSites, IgnoreHooks, callAfterHooks, callBeforeHooks, callExceptHooks, getHookSite, getHookedFunction;
 HookLib = exports;
 HookSites = [];
@@ -622,7 +622,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/IDGenerator.amd.js
-;modjewel.define("weinre/common/IDGenerator", function(require, exports, module) { 
+;modjewel.define("weinre/common/IDGenerator", function(require, exports, module) {
 var IDGenerator, idName, nextId, nextIdValue;
 nextIdValue = 1;
 idName = "__weinre__id";
@@ -659,7 +659,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/IDLTools.amd.js
-;modjewel.define("weinre/common/IDLTools", function(require, exports, module) { 
+;modjewel.define("weinre/common/IDLTools", function(require, exports, module) {
 var Callback, Ex, IDLTools, IDLs, getProxyMethod;
 Ex = require('./Ex');
 Callback = require('./Callback');
@@ -791,7 +791,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/MessageDispatcher.amd.js
-;modjewel.define("weinre/common/MessageDispatcher", function(require, exports, module) { 
+;modjewel.define("weinre/common/MessageDispatcher", function(require, exports, module) {
 var Binding, Callback, Ex, IDLTools, InspectorBackend, MessageDispatcher, Verbose, WebSocketXhr, Weinre,
 __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 Weinre = require('./Weinre');
@@ -974,7 +974,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/MethodNamer.amd.js
-;modjewel.define("weinre/common/MethodNamer", function(require, exports, module) { 
+;modjewel.define("weinre/common/MethodNamer", function(require, exports, module) {
 var MethodNamer,
 __hasProp = {}.hasOwnProperty;
 module.exports = MethodNamer = (function() {
@@ -1012,7 +1012,7 @@ MethodNamer.setNamesForClass(module.exports);
 
 ;
 // weinre/common/StackTrace.amd.js
-;modjewel.define("weinre/common/StackTrace", function(require, exports, module) { 
+;modjewel.define("weinre/common/StackTrace", function(require, exports, module) {
 var StackTrace, getTrace;
 module.exports = StackTrace = (function() {
 function StackTrace(args) {
@@ -1074,7 +1074,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/WebSocketXhr.amd.js
-;modjewel.define("weinre/common/WebSocketXhr", function(require, exports, module) { 
+;modjewel.define("weinre/common/WebSocketXhr", function(require, exports, module) {
 var EventListeners, Ex, HookLib, WebSocketXhr, Weinre, _xhrEventHandler;
 Ex = require('./Ex');
 Weinre = require('./Weinre');
@@ -1297,7 +1297,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/common/Weinre.amd.js
-;modjewel.define("weinre/common/Weinre", function(require, exports, module) { 
+;modjewel.define("weinre/common/Weinre", function(require, exports, module) {
 var ConsoleLogger, Ex, IDLTools, StackTrace, Weinre, consoleLogger, getLogger, logger, _notImplemented, _showNotImplemented;
 Ex = require('./Ex');
 IDLTools = require('./IDLTools');
@@ -1384,7 +1384,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/BrowserHacks.amd.js
-;modjewel.define("weinre/target/BrowserHacks", function(require, exports, module) { 
+;modjewel.define("weinre/target/BrowserHacks", function(require, exports, module) {
 var BrowserHacks;
 BrowserHacks = function() {
 if (typeof document.addEventListener === "undefined") {
@@ -1411,7 +1411,7 @@ BrowserHacks();
 
 ;
 // weinre/target/CheckForProblems.amd.js
-;modjewel.define("weinre/target/CheckForProblems", function(require, exports, module) { 
+;modjewel.define("weinre/target/CheckForProblems", function(require, exports, module) {
 var CheckForProblems, checkForOldPrototypeVersion;
 module.exports = CheckForProblems = (function() {
 function CheckForProblems() {}
@@ -1444,7 +1444,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/Console.amd.js
-;modjewel.define("weinre/target/Console", function(require, exports, module) { 
+;modjewel.define("weinre/target/Console", function(require, exports, module) {
 var Console, MessageLevel, MessageSource, MessageType, OriginalConsole, RemoteConsole, Timeline, UsingRemote, Weinre;
 Weinre = require('../common/Weinre');
 Timeline = require('../target/Timeline');
@@ -1583,7 +1583,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/CSSStore.amd.js
-;modjewel.define("weinre/target/CSSStore", function(require, exports, module) { 
+;modjewel.define("weinre/target/CSSStore", function(require, exports, module) {
 var CSSStore, IDGenerator, Weinre, _elementMatchesSelector, _fallbackMatchesSelector, _getMappableId, _getMappableObject, _mozMatchesSelector, _msMatchesSelector, _webkitMatchesSelector;
 IDGenerator = require('../common/IDGenerator');
 Weinre = require('../common/Weinre');
@@ -1938,7 +1938,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/ElementHighlighter.amd.js
-;modjewel.define("weinre/target/ElementHighlighter", function(require, exports, module) { 
+;modjewel.define("weinre/target/ElementHighlighter", function(require, exports, module) {
 var ElementHighlighter, canvasAvailable, currentHighlighterElement, fromPx, getMetricsForElement, highlighterClass, supportsCanvas;
 canvasAvailable = null;
 highlighterClass = null;
@@ -2029,7 +2029,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/ElementHighlighterDivs2.amd.js
-;modjewel.define("weinre/target/ElementHighlighterDivs2", function(require, exports, module) { 
+;modjewel.define("weinre/target/ElementHighlighterDivs2", function(require, exports, module) {
 var ColorBorder, ColorContent, ColorMargin, ColorPadding, ElementHighlighter, ElementHighlighterDivs2, px,
 __hasProp = {}.hasOwnProperty,
 __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -2104,7 +2104,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/HookSites.amd.js
-;modjewel.define("weinre/target/HookSites", function(require, exports, module) { 
+;modjewel.define("weinre/target/HookSites", function(require, exports, module) {
 var HookLib, HookSites;
 HookLib = require('../common/HookLib');
 module.exports = HookSites = (function() {
@@ -2138,7 +2138,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/InjectedScript.js
-var injectedScriptConstructor = 
+var injectedScriptConstructor =
 (function (InjectedScriptHost, inspectedWindow, injectedScriptId) {
 function bind(thisObject, memberFunction)
 {
@@ -2240,7 +2240,7 @@ property.value = this._wrapObject(object[propertyName], parsedObjectId.groupName
 property.value = new InjectedScript.RemoteObject.fromException(e);
 }
 } else {
-property.value = new InjectedScript.RemoteObject.fromObject("\u2014"); 
+property.value = new InjectedScript.RemoteObject.fromObject("\u2014");
 property.isGetter = true;
 }
 properties.push(property);
@@ -2470,7 +2470,7 @@ return type;
 if (obj instanceof inspectedWindow.Node) {
 try {
 return (obj.nodeType === undefined ? type : "node");
-} catch (ex) {} 
+} catch (ex) {}
 return obj.toString();
 }
 if (obj instanceof inspectedWindow.String)
@@ -2487,7 +2487,7 @@ if (obj instanceof inspectedWindow.RegExp)
 return "regexp";
 if (isFinite(obj.length) && typeof obj.splice === "function")
 return "array";
-if (isFinite(obj.length) && typeof obj.callee === "function") 
+if (isFinite(obj.length) && typeof obj.callee === "function")
 return "array";
 if (obj instanceof inspectedWindow.NodeList)
 return "array";
@@ -2774,7 +2774,7 @@ return injectedScript;
 })
 ;
 // weinre/target/InjectedScriptHostImpl.amd.js
-;modjewel.define("weinre/target/InjectedScriptHostImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/InjectedScriptHostImpl", function(require, exports, module) {
 var InjectedScriptHostImpl, Weinre;
 Weinre = require('../common/Weinre');
 module.exports = InjectedScriptHostImpl = (function() {
@@ -2825,7 +2825,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/NetworkRequest.amd.js
-;modjewel.define("weinre/target/NetworkRequest", function(require, exports, module) { 
+;modjewel.define("weinre/target/NetworkRequest", function(require, exports, module) {
 var Ex, HookLib, HookSites, IDGenerator, Loader, NetworkRequest, StackTrace, Weinre, getFormData, getHeaders, getRequest, getResponse, getXhrEventHandler, splitContentType, trim;
 StackTrace = require('../common/StackTrace');
 IDGenerator = require('../common/IDGenerator');
@@ -2947,8 +2947,12 @@ connectionReused: false,
 connectionID: 0,
 wasCached: false
 };
+try {
 contentLength = xhr.getResponseHeader("Content-Length");
 contentLength = parseInt(contentLength);
+} catch (_error) {
+contentLength = 0;
+}
 if (!isNaN(contentLength)) {
 result.expectedContentLength = contentLength;
 }
@@ -3019,7 +3023,7 @@ e = _error;
 
 ;
 // weinre/target/NodeStore.amd.js
-;modjewel.define("weinre/target/NodeStore", function(require, exports, module) { 
+;modjewel.define("weinre/target/NodeStore", function(require, exports, module) {
 var Debug, IDGenerator, NodeStore, Weinre, handleDOMAttrModified, handleDOMCharacterDataModified, handleDOMNodeInserted, handleDOMNodeRemoved, handleDOMSubtreeModified;
 Weinre = require('../common/Weinre');
 IDGenerator = require('../common/IDGenerator');
@@ -3248,7 +3252,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/SqlStepper.amd.js
-;modjewel.define("weinre/target/SqlStepper", function(require, exports, module) { 
+;modjewel.define("weinre/target/SqlStepper", function(require, exports, module) {
 var Binding, SqlStepper, executeSql, ourErrorCallback, runStep;
 Binding = require('../common/Binding');
 module.exports = SqlStepper = (function() {
@@ -3333,7 +3337,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/Target.amd.js
-;modjewel.define("weinre/target/Target", function(require, exports, module) { 
+;modjewel.define("weinre/target/Target", function(require, exports, module) {
 var Binding, CSSStore, Callback, CheckForProblems, ElementHighlighter, Ex, HookLib, InjectedScriptHostImpl, MessageDispatcher, NetworkRequest, NodeStore, Target, Weinre, WeinreExtraClientCommandsImpl, WeinreTargetEventsImpl, WiCSSImpl, WiConsoleImpl, WiDOMImpl, WiDOMStorageImpl, WiDatabaseImpl, WiInspectorImpl, WiRuntimeImpl, currentTime;
 require('./BrowserHacks');
 Ex = require('../common/Ex');
@@ -3546,7 +3550,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/Timeline.amd.js
-;modjewel.define("weinre/target/Timeline", function(require, exports, module) { 
+;modjewel.define("weinre/target/Timeline", function(require, exports, module) {
 var Ex, HookLib, HookSites, IDGenerator, Running, StackTrace, Timeline, TimelineRecordType, TimerIntervals, TimerTimeouts, Weinre, addStackTrace, addTimer, getXhrEventHandler, instrumentedTimerCode, removeTimer;
 Ex = require('../common/Ex');
 Weinre = require('../common/Weinre');
@@ -3921,7 +3925,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WeinreExtraClientCommandsImpl.amd.js
-;modjewel.define("weinre/target/WeinreExtraClientCommandsImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WeinreExtraClientCommandsImpl", function(require, exports, module) {
 var Console, Weinre, WeinreExtraClientCommandsImpl, WiDatabaseImpl;
 Weinre = require('../common/Weinre');
 WiDatabaseImpl = require('./WiDatabaseImpl');
@@ -3943,7 +3947,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WeinreTargetEventsImpl.amd.js
-;modjewel.define("weinre/target/WeinreTargetEventsImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WeinreTargetEventsImpl", function(require, exports, module) {
 var Callback, Console, Weinre, WeinreTargetEventsImpl;
 Weinre = require('../common/Weinre');
 Callback = require('../common/Callback');
@@ -3978,7 +3982,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiConsoleImpl.amd.js
-;modjewel.define("weinre/target/WiConsoleImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiConsoleImpl", function(require, exports, module) {
 var Weinre, WiConsoleImpl;
 Weinre = require('../common/Weinre');
 module.exports = WiConsoleImpl = (function() {
@@ -4011,7 +4015,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiCSSImpl.amd.js
-;modjewel.define("weinre/target/WiCSSImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiCSSImpl", function(require, exports, module) {
 var Weinre, WiCSSImpl;
 Weinre = require('../common/Weinre');
 module.exports = WiCSSImpl = (function() {
@@ -4123,7 +4127,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiDatabaseImpl.amd.js
-;modjewel.define("weinre/target/WiDatabaseImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiDatabaseImpl", function(require, exports, module) {
 var HookSites, IDGenerator, SqlStepper, Weinre, WiDatabaseImpl, dbAdd, dbById, dbRecordById, dbRecordByName, executeSQL_error, executeSQL_step_1, executeSQL_step_2, getTableNames_step_1, getTableNames_step_2, id2db, logSqlError, name2db;
 Weinre = require('../common/Weinre');
 IDGenerator = require('../common/IDGenerator');
@@ -4279,7 +4283,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiDOMImpl.amd.js
-;modjewel.define("weinre/target/WiDOMImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiDOMImpl", function(require, exports, module) {
 var Weinre, WiDOMImpl;
 Weinre = require('../common/Weinre');
 module.exports = WiDOMImpl = (function() {
@@ -4459,7 +4463,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiDOMStorageImpl.amd.js
-;modjewel.define("weinre/target/WiDOMStorageImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiDOMStorageImpl", function(require, exports, module) {
 var HookSites, Weinre, WiDOMStorageImpl, _getStorageArea, _storageEventHandler;
 Weinre = require('../common/Weinre');
 HookSites = require('./HookSites');
@@ -4618,7 +4622,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiInspectorImpl.amd.js
-;modjewel.define("weinre/target/WiInspectorImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiInspectorImpl", function(require, exports, module) {
 var Timeline, Weinre, WiInspectorImpl;
 Weinre = require('../common/Weinre');
 Timeline = require('../target/Timeline');
@@ -4669,7 +4673,7 @@ require("../common/MethodNamer").setNamesForClass(module.exports);
 
 ;
 // weinre/target/WiRuntimeImpl.amd.js
-;modjewel.define("weinre/target/WiRuntimeImpl", function(require, exports, module) { 
+;modjewel.define("weinre/target/WiRuntimeImpl", function(require, exports, module) {
 var Weinre, WiRuntimeImpl;
 Weinre = require('../common/Weinre');
 module.exports = WiRuntimeImpl = (function() {

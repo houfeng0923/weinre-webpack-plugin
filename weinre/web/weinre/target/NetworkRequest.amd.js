@@ -137,8 +137,12 @@ getResponse = function(xhr) {
     connectionID: 0,
     wasCached: false
   };
-  contentLength = xhr.getResponseHeader("Content-Length");
-  contentLength = parseInt(contentLength);
+  try {
+    contentLength = xhr.getResponseHeader("Content-Length");
+    contentLength = parseInt(contentLength);
+  } catch (_error) {
+    contentLength = 0;
+  }
   if (!isNaN(contentLength)) {
     result.expectedContentLength = contentLength;
   }
