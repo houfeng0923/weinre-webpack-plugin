@@ -1,5 +1,4 @@
 let path = require('path');
-let childProcess =  require('child_process');
 let _ = require('./utils');
 
 let defaultOpts = {

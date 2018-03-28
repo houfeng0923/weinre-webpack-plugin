@@ -39,15 +39,15 @@ exports.run = (options) ->
 #-------------------------------------------------------------------------------
 run2 = ->
     options = utils.options
-    
+
     serviceManager.registerProxyClass 'WeinreClientEvents'
     serviceManager.registerProxyClass 'WeinreTargetEvents'
     serviceManager.registerLocalClass 'WeinreClientCommands'
     serviceManager.registerLocalClass 'WeinreTargetCommands'
-    
+
     startDeathWatcher options.deathTimeout
-    
-    startServer()    
+
+    startServer()
 
 #-------------------------------------------------------------------------------
 processOptions = (options, cb) ->
@@ -59,20 +59,20 @@ processOptions = (options, cb) ->
     options.deathTimeout = utils.ensureInteger( options.deathTimeout, 'the value of the option deathTimeout is not a number')
 
     options.verbose = true if options.debug
-    
+
     options.staticWebDir = getStaticWebDir()
-    
+
     utils.logVerbose "pid:                 #{process.pid}"
     utils.logVerbose "version:             #{getVersion()}"
     utils.logVerbose "node versions:"
-    
+
     names   = _.keys(process.versions)
     reducer = (memo, name) -> Math.max(memo, name.length)
     nameLen = _.reduce(names, reducer, 0)
-    
+
     for name in names
         utils.logVerbose "   #{utils.alignLeft(name, nameLen)}: #{process.versions[name]}"
-    
+
     utils.logVerbose "options:"
     utils.logVerbose "   httpPort:     #{options.httpPort}"
     utils.logVerbose "   boundHost:    #{options.boundHost}"
@@ -93,9 +93,9 @@ processOptions = (options, cb) ->
 checkHost = (hostName, cb) ->
     return cb() if hostName == '-all-'
     return cb() if hostName == 'localhost'
-    
+
     return cb() if net.isIP(hostName)
-    
+
     dns.lookup hostName, cb
 
 #-------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ deathTimeout = null
 #-------------------------------------------------------------------------------
 startDeathWatcher = (timeout) ->
     deathTimeout = utils.options.deathTimeout * 1000
-    
+
     setInterval checkForDeath, 1000
 
 #-------------------------------------------------------------------------------
@@ -120,17 +120,17 @@ startServer = () ->
 
     clientHandler = new HttpChannelHandler('/ws/client')
     targetHandler = new HttpChannelHandler('/ws/target')
-    
+
     channelManager.initialize()
-    
+
     favIcon = "#{options.staticWebDir}/images/weinre-icon-32x32.png"
 
     staticCacheOptions =
         maxObjects: 500
         maxLength:  32 * 1024 * 1024
-        
-    app = express.createServer()
-    
+
+    app = express()
+
     app.on 'error', (error) ->
         utils.exit "error running server: #{error}"
 
@@ -141,7 +141,7 @@ startServer = () ->
     app.all /^\/ws\/client(.*)/, (request, response, next) ->
         uri = request.params[0]
         uri = '/' if uri == ''
-        
+
         dumpingHandler(request, response, uri) if options.debug
         clientHandler.handle(request, response, uri)
 
@@ -156,11 +156,11 @@ startServer = () ->
 
     app.use express.staticCache(staticCacheOptions)
     app.use express.static(options.staticWebDir)
-    
+
     if options.boundHost == '-all-'
         utils.log "starting server at http://localhost:#{options.httpPort}"
         app.listen options.httpPort
-        
+
     else
         utils.log "starting server at http://#{options.boundHost}:#{options.httpPort}"
         app.listen options.httpPort, options.boundHost
@@ -169,13 +169,13 @@ startServer = () ->
 getStaticWebDir = () ->
     webDir = path.normalize path.join(__dirname,'../web')
     return webDir if utils.fileExistsSync webDir
-    
+
     utils.exit 'unable to find static files to serve in #{webDir}; did you do a build?'
-    
+
 #-------------------------------------------------------------------------------
 Version = null
 getVersion = exports.getVersion = () ->
-    return Version if Version 
+    return Version if Version
 
     packageJsonName  = path.join(path.dirname(fs.realpathSync(__filename)), '../package.json')
 

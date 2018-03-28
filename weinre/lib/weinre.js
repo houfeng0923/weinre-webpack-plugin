@@ -127,7 +127,7 @@ startServer = function() {
     maxObjects: 500,
     maxLength: 32 * 1024 * 1024
   };
-  app = express.createServer();
+  app = express();
   app.on('error', function(error) {
     return utils.exit("error running server: " + error);
   });
