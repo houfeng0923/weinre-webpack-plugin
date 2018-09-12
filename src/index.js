@@ -7,6 +7,7 @@ let defaultOpts = {
   verbose: false,
   debug: false,
   readTimeout: 5,
+  runServer: true,
 };
 
 function WeinreWebpackPlugin(options) {
@@ -30,7 +31,7 @@ WeinreWebpackPlugin.prototype.apply = function(compiler) {
   });
 
   compiler.plugin('done', function() {
-    if (!this.weinreServer) {
+    if (options.runServer && !this.weinreServer) {
       this.weinreServer = startServer(plugin.options);
     }
   });
