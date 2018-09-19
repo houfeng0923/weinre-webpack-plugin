@@ -11,23 +11,24 @@ It's the integrated [weinre](https://developer.mozilla.org/zh-CN/docs/Archive/B2
     npm install --save-dev weinre-webpack-plugin
 
 ## usage
-```
-  // webpack.config.js
-  const WeinreWebpackPlugin = require('weinre-webpack-plugin');
-  // default options for weinre
-  const opts = {
-    httpPort: 8000,
-    boundHost: '0.0.0.0',
-    verbose: false,
-    debug: false,
-    readTimeout: 5,
-  };
-  module.exports = {
-    // ...
-    plugins: [
-      new WeinreWebpackPlugin(opts)
-    ]
-  }
+
+```diff
+// webpack.config.js
++ const WeinreWebpackPlugin = require('weinre-webpack-plugin');
++ // default options for weinre
++ const opts = {
++   httpPort: 8000,
++   boundHost: '0.0.0.0',
++   verbose: false,
++   debug: false,
++   readTimeout: 5,
++ };
+module.exports = {
+  // ...
+  plugins: [
++  new WeinreWebpackPlugin(opts)
+  ]
+}
 
 ```
 
