@@ -1,15 +1,19 @@
+let portfinder = require('portfinder');
+
 module.exports = {
-  extend: function(obj) {
-    if (typeof obj !== 'object') return obj;
-    var source, prop;
-    for (var i = 1, length = arguments.length; i < length; i++) {
-      source = arguments[i];
-      for (prop in source) {
-        if (hasOwnProperty.call(source, prop)) {
-          obj[prop] = source[prop];
-        }
-      }
+
+  isDevServer: function(compilerOptions) {
+    let devServer = compilerOptions.devServer;
+    return devServer && process.stdout.isTTY;
+  },
+
+  getValidPort: function(compilerOptions, basePort) {
+    let devServerPort = compilerOptions.devServer.port;
+    basePort = basePort || 8000;
+    if (basePort === devServerPort) {
+      basePort++;
     }
-    return obj;
+    portfinder.basePort = basePort;
+    return portfinder.getPortPromise();
   }
 };

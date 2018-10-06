@@ -17,6 +17,10 @@ any-promise@^1.0.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/any-promise/download/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
 
+async@^1.5.2:
+  version "1.5.2"
+  resolved "http://registry.npm.taobao.org/async/download/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
 base64-url@1:
   version "1.3.3"
   resolved "http://registry.npm.taobao.org/base64-url/download/base64-url-1.3.3.tgz#f8b6c537f09a4fc58c99cb86e0b0e9c61461a20f"
@@ -175,7 +179,7 @@ csurf@~1.6.2:
     csrf "~2.0.5"
     http-errors "~1.2.8"
 
-debug@2.6.9:
+debug@2.6.9, debug@^2.2.0:
   version "2.6.9"
   resolved "http://registry.npm.taobao.org/debug/download/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -352,6 +356,12 @@ mkdirp@0.5.0:
   dependencies:
     minimist "0.0.8"
 
+mkdirp@0.5.x:
+  version "0.5.1"
+  resolved "http://registry.npm.taobao.org/mkdirp/download/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
+  dependencies:
+    minimist "0.0.8"
+
 morgan@~1.4.1:
   version "1.4.1"
   resolved "http://registry.npm.taobao.org/morgan/download/morgan-1.4.1.tgz#cd9600c3fa74e2fdf22ba0f1d026c20cb96f25fe"
@@ -423,6 +433,14 @@ parseurl@~1.3.0, parseurl@~1.3.2:
 pause@0.0.1:
   version "0.0.1"
   resolved "http://registry.npm.taobao.org/pause/download/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
+
+portfinder@^1.0.17:
+  version "1.0.17"
+  resolved "http://registry.npm.taobao.org/portfinder/download/portfinder-1.0.17.tgz#a8a1691143e46c4735edefcf4fbcccedad26456a"
+  dependencies:
+    async "^1.5.2"
+    debug "^2.2.0"
+    mkdirp "0.5.x"
 
 proxy-addr@~1.0.3:
   version "1.0.10"
