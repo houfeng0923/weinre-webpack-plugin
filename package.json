@@ -1,7 +1,7 @@
 {
   "name": "weinre-webpack-plugin",
   "description": "weinre plugin for [webpack]",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "MIT",
   "main": "./src/index.js",
   "repository": {

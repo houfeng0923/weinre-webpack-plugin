@@ -48,8 +48,11 @@ WeinreWebpackPlugin.prototype.apply = function(compiler) {
       plugin.pushEntry(entry);
     });
 
-    compiler.hooks.done.tapAsync("WeinreWebpackPlugin", function() {
-      plugin.startServer();
+    compiler.hooks.done.tapAsync("WeinreWebpackPlugin", function(stats, callback) {
+      setTimeout(function() {
+        plugin.startServer();
+        callback();
+      });
     });
   } else {
     compiler.plugin('entry-option', function(context, entry) {
