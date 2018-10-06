@@ -4,6 +4,15 @@
   "version": "2.1.0",
   "license": "MIT",
   "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/houfeng0923/weinre-webpack-plugin"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "weinre"
+  ],
   "peerDependencies": {
     "webpack": "*"
   },
@@ -12,5 +21,7 @@
     "nopt": "3.0.x",
     "underscore": "1.7.x"
   },
-  "scripts": {}
+  "scripts": {
+    "publish": "./scripts/publish.sh"
+  }
 }
