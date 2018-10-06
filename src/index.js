@@ -37,10 +37,6 @@ WeinreWebpackPlugin.prototype.startServer = function() {
 
 WeinreWebpackPlugin.prototype.apply = function(compiler) {
   let plugin = this;
-  let options = this.options;
-  let weinreClient = path.resolve(__dirname, '../client');
-  let insertUrl = `http://${options.boundHost}:${options.httpPort}/target/target-script-min.js#anonymous`;
-  let weinreEntry = `${weinreClient}?${insertUrl}`;
 
   // for webpack 4
   if (compiler.hooks) {
