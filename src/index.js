@@ -34,9 +34,9 @@ WeinreWebpackPlugin.prototype.updateOptions = function(compiler) {
 }
 
 WeinreWebpackPlugin.prototype.initEntry = function(entry) {
-  let options = this.options;
+  let { boundHost, httpPort } = this.options;
   let weinreClient = path.resolve(__dirname, '../client');
-  let insertUrl = `http://${options.boundHost}:${options.httpPort}/target/target-script-min.js#anonymous`;
+  let insertUrl = `http://${boundHost}:${httpPort}/target/target-script-min.js#anonymous`;
   let weinreEntry = `${weinreClient}?${insertUrl}`;
 
   Object.keys(entry).forEach(function(key) {
@@ -51,31 +51,30 @@ WeinreWebpackPlugin.prototype.startServer = function() {
 }
 
 WeinreWebpackPlugin.prototype.apply = function(compiler) {
-  this.updateOptions(compiler).then(() => {
-    // for webpack 4
-    if (compiler.hooks) {
-      compiler.hooks.entryOption.tap("WeinreWebpackPlugin", (context, entry) => {
-        this.initEntry(entry);
-      });
+  let optionsPromise = this.updateOptions(compiler);
+  optionsPromise.catch(err => console.error(err));
 
-      compiler.hooks.done.tapAsync("WeinreWebpackPlugin", (stats, callback) => {
-        setTimeout(() => {
-          this.startServer();
-          callback();
-        });
-      });
-    } else {
-      compiler.plugin('entry-option', (context, entry) => {
-        this.initEntry(entry);
-      });
+  // for webpack 4
+  if (compiler.hooks) {
+    compiler.hooks.entryOption.tap("WeinreWebpackPlugin", (context, entry) => {
+      this.initEntry(entry);
+    });
 
-      compiler.plugin('done', () => {
+    compiler.hooks.done.tapAsync("WeinreWebpackPlugin", (stats, callback) => {
+      setTimeout(() => {
         this.startServer();
+        callback();
       });
-    }
-  }, (err) => {
-    console.error(err);
-  });
+    });
+  } else {
+    compiler.plugin('entry-option', (context, entry) => {
+      this.initEntry(entry);
+    });
+
+    compiler.plugin('done', () => {
+      this.startServer();
+    });
+  }
 };
 
 function startServer(opts) {
