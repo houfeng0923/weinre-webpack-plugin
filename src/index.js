@@ -28,7 +28,6 @@ WeinreWebpackPlugin.prototype.updateOptions = function(compiler) {
     }
   }
   return _.getValidPort(compilerOptions, options.httpPort).then((port) => {
-    console.warn(port);
     options.httpPort = port;
     return options;
   });
@@ -75,7 +74,7 @@ WeinreWebpackPlugin.prototype.apply = function(compiler) {
       });
     }
   }, (err) => {
-    console.Error(err);
+    console.error(err);
   });
 };
 
