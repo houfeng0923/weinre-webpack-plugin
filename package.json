@@ -23,6 +23,6 @@
     "underscore": "1.7.x"
   },
   "scripts": {
-    "publish": "./scripts/publish.sh"
+    "pub": "./scripts/publish.sh"
   }
 }
