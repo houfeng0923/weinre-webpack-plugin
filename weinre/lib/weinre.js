@@ -26,7 +26,16 @@ channelManager = require('./channelManager');
 serviceManager = require('./serviceManager');
 
 exports.run = function(options) {
-  return processOptions(options, run2);
+  return new Promise((resolve) => {
+    processOptions(options, () => {
+      let app = run2();
+      resolve(() => {
+        app.close(() => {
+          utils.log("stop weinre server at http://" + options.boundHost + ":" + options.httpPort);
+        });
+      });
+    });
+  });
 };
 
 run2 = function() {
@@ -161,12 +170,13 @@ startServer = function() {
   app.use(express.staticCache(staticCacheOptions));
   app.use(express["static"](options.staticWebDir));
   if (options.boundHost === '-all-') {
-    utils.log("starting server at http://localhost:" + options.httpPort);
+    utils.log("starting weinre server at http://localhost:" + options.httpPort);
     return app.listen(options.httpPort);
   } else {
-    utils.log("starting server at http://" + options.boundHost + ":" + options.httpPort);
+    utils.log("starting weinre server at http://" + options.boundHost + ":" + options.httpPort);
     return app.listen(options.httpPort, options.boundHost);
   }
+  return app;
 };
 
 getStaticWebDir = function() {

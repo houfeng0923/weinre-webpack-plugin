@@ -1,6 +1,6 @@
 let path = require('path');
 let utils = require('./lib/utils');
-let startWeinreServer = require('./lib/startWeinreServer');
+let weinreServer = require('./lib/weinreServer');
 
 let defaultOpts = {
   httpPort: 8000,
@@ -54,7 +54,11 @@ class WeinreWebpackPlugin {
          callback();
         });
     });
-    // todo stop server
+
+    (compiler.hooks ? compiler.hooks.watchClose.tap.bind(compiler.hooks.watchClose, 'WeinreWebpackPlugin')
+    : compiler.plugin.bind(compiler, 'watchClose'))((context, entry) => {
+      weinreServer.stop();
+    });
   }
 
   updateOptions(compilerOptions) {
@@ -83,7 +87,7 @@ class WeinreWebpackPlugin {
     .then(() => {
       if (this.options.runServer && !this.weinreServer) {
         this.weinreServer = true;
-        return startWeinreServer(this.options);
+        return weinreServer.start(this.options);
       }
     });
   }
