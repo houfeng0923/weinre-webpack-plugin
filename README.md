@@ -17,8 +17,8 @@ It's the integrated [weinre](https://developer.mozilla.org/zh-CN/docs/Archive/B2
 + const WeinreWebpackPlugin = require('weinre-webpack-plugin');
 + // default options for weinre
 + const opts = {
-+   httpPort: 8000,
-+   boundHost: '0.0.0.0',
++   // httpPort: 8000,
++   // boundHost: '0.0.0.0',
 +   verbose: false,
 +   debug: false,
 +   readTimeout: 5,

@@ -1,13 +1,14 @@
-var scriptUrl;
-var scriptElements = document.getElementsByTagName("script");
+var weinreUrl;
 
-if(typeof __resourceQuery === "string" && __resourceQuery) {
-    scriptUrl = __resourceQuery.substr(1);
+// async load weinreUrl
+require.ensure([], function(require) {
+  insert(require('./getWeinreUrl.js'));
+});
+
+function insert(url) {
+  var firstScript = document.getElementsByTagName("script")[0];
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = url;
+  firstScript.parentNode.insertBefore(script,firstScript);
 }
-
-if(scriptUrl && scriptElements.length) {
-    var script = document.createElement('script');
-    script.src = scriptUrl;
-    scriptElements[0].parentNode.insertBefore(script, scriptElements[0]);
-}
-

@@ -1,9 +1,9 @@
 {
   "name": "weinre-webpack-plugin",
   "description": "weinre plugin for [webpack]",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "license": "MIT",
-  "main": "./src/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/houfeng0923/weinre-webpack-plugin"
@@ -14,7 +14,8 @@
     "weinre"
   ],
   "peerDependencies": {
-    "webpack": "*"
+    "webpack": "^2.0.0 || ^3.0.0 || ^4.0.0",
+    "webpack-dev-server": "^3.0.0"
   },
   "dependencies": {
     "express": "3.18.1",
